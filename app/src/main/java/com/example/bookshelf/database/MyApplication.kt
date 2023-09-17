@@ -1,0 +1,10 @@
+package com.example.bookshelf.database
+
+import android.app.Application
+import androidx.room.Room
+
+class MyApplication : Application() {
+    val database: AppDatabase by lazy {
+        Room.databaseBuilder(applicationContext, AppDatabase::class.java, "app-database").build()
+    }
+}

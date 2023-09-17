@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.bookshelf.viewModel.BooksViewModel" />
+    </data>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Sorting Options -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sort by:"
+            android:textSize="16sp"
+            android:paddingEnd="8dp"/>
+
+        <Button
+            android:id="@+id/btnTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:onClick="@{() -> viewModel.onTitleSortClick()}"
+            android:layout_margin="4dp"
+            android:textSize="16sp"/>
+
+        <Button
+            android:id="@+id/btnHits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hits"
+            android:layout_margin="4dp"
+            android:textSize="16sp"
+            android:onClick="@{() -> viewModel.onHitsSortClick()}"/>
+
+        <Button
+            android:id="@+id/btnFav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fav"
+            android:layout_margin="4dp"
+            android:textSize="16sp"
+            android:onClick="@{() -> viewModel.onFavSortClick()}"/>
+    </LinearLayout>
+
+    <!-- RecyclerView for Book List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:adapter="@{viewModel.bookList}"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+</LinearLayout>
+</layout>

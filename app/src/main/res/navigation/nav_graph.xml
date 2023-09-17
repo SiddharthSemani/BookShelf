@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.bookshelf.view.fragment.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <!-- Define any arguments for LoginFragment here, if needed -->
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.bookshelf.view.fragment.SignUpFragment"
+        android:label="Sign Up"
+        tools:layout="@layout/fragment_sign_up">
+        <!-- Define any arguments for SignUpFragment here, if needed -->
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <!-- Add BookListFragment -->
+    <fragment
+        android:id="@+id/bookListFragment"
+        android:name="com.example.bookshelf.view.fragment.BooksFragment"
+        android:label="Book List"
+        tools:layout="@layout/fragment_books" />
+
+    <!-- Add BookDetailFragment -->
+    <fragment
+        android:id="@+id/bookDetailFragment"
+        android:name="com.example.bookshelf.view.fragment.BookDetailFragment"
+        android:label="Book Detail"
+        tools:layout="@layout/fragment_book_detail" />
+
+    <!-- Define navigation actions to navigate to the BookDetailFragment from the BookListFragment -->
+    <action
+        android:id="@+id/action_bookListFragment_to_bookDetailFragment"
+        app:destination="@id/bookDetailFragment" />
+
+    <!-- Add other destinations/fragments as needed -->
+
+</navigation>
